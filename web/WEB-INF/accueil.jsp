@@ -19,7 +19,7 @@
                 <div class="col-sm-4" style="background-color:lavender;">${produit['nomProduit']}</div>
             </div>
         
-    </c:forEach>
+            </c:forEach>
 </div>
     <p>Vous pouvez vous inscrire ou vous connecter à votre compte en haut à droite de la fenêtre</p>
     <p>Une fois connecté-e, vous pourrez accéder à votre panier, vos informations personnelles et vos commandes passées.</p>

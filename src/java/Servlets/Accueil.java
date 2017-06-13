@@ -21,7 +21,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modele.ModeleProduit;
 import modele.ModeleUtilisateur;
 
 /**
@@ -52,7 +51,7 @@ public class Accueil extends HttpServlet {
 //        out.println("</html>");
         
         request.setAttribute(ERREUR, erreur);
-        
+        listeProduits.clear();
         leDaoProduit = CreationConnexion.getDaoProduit();
         try {
             leDaoProduit.recupererProduits(listeProduits);
@@ -62,9 +61,6 @@ public class Accueil extends HttpServlet {
         }       
         
         request.setAttribute(LIST, listeProduits);
-        for (Produit produit : listeProduits) {
-            System.out.println(produit);
-        }
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
     }
 

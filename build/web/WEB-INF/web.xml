@@ -19,6 +19,10 @@
         <servlet-name>Inscription</servlet-name>
         <servlet-class>Servlets.Inscription</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CompteInfos</servlet-name>
+        <servlet-class>Servlets.CompteInfos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Accueil</servlet-name>
         <url-pattern>/Accueil</url-pattern>
@@ -34,6 +38,10 @@
     <servlet-mapping>
         <servlet-name>Inscription</servlet-name>
         <url-pattern>/Inscription</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CompteInfos</servlet-name>
+        <url-pattern>/CompteInfos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

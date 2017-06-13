@@ -26,7 +26,9 @@ public class Connexion extends HttpServlet {
     
     public static final String ATT_USER         = "utilisateur";
     public static final String ATT_FORM         = "form";
-    public static final String ATT_SESSION_USER = "sessionUtilisateur";
+    public static final String ATT_SESSION_USER_ID = "idUtilisateur";
+    public static final String ATT_SESSION_USER_NAME = "sessionUtilisateur";
+    public static final String ATT_SESSION_USER_SNAME = "sessionUtilisateurPrenom";
     public static final String VUE              = "/WEB-INF/connexion.jsp";
 
     @Override
@@ -58,9 +60,13 @@ public class Connexion extends HttpServlet {
          * Utilisateur à la session, sinon suppression du bean de la session.
          */
         if ( form.getErreurs().isEmpty() ) {
-            session.setAttribute( ATT_SESSION_USER, utilisateur );
+            session.setAttribute( ATT_SESSION_USER_ID, utilisateur.getId_utilisateur() );
+            session.setAttribute(ATT_SESSION_USER_NAME, utilisateur.getNom());
+            session.setAttribute(ATT_SESSION_USER_SNAME, utilisateur.getPrenom());
         } else {
-            session.setAttribute( ATT_SESSION_USER, null );
+            session.setAttribute( ATT_SESSION_USER_ID, null );
+            session.setAttribute(ATT_SESSION_USER_NAME, null);
+            session.setAttribute(ATT_SESSION_USER_SNAME, null);
         }
 
         /* Stockage du formulaire et du bean dans l'objet request */

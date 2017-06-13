@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -72,5 +73,20 @@ public class DaoUtilisateur {
         pstmt.close();
         
         return resultat;
+    }
+    
+    public void recupererUtilisateur(List<String> lesInfos, String email) throws SQLException {
+        String requete = "select * from utilisateur where email= '" + email + "'";
+        PreparedStatement pstmt = connexion.prepareStatement(requete);
+        ResultSet rset = pstmt.executeQuery(requete);
+        String nom = rset.getString(4);
+        String prenom = rset.getString(5);
+        String numTel = rset.getString(6);
+        LocalDate dateInscription = rset.getDate(7).toLocalDate();
+        lesInfos.add(nom);
+        lesInfos.add(prenom);
+        lesInfos.add(numTel);
+        lesInfos.add(dateInscription.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        pstmt.close();
     }
 }
