@@ -79,10 +79,13 @@ public class DaoUtilisateur {
         String requete = "select * from utilisateur where email= '" + email + "'";
         PreparedStatement pstmt = connexion.prepareStatement(requete);
         ResultSet rset = pstmt.executeQuery(requete);
+        String mdp = rset.getString(3);
         String nom = rset.getString(4);
         String prenom = rset.getString(5);
         String numTel = rset.getString(6);
         LocalDate dateInscription = rset.getDate(7).toLocalDate();
+        lesInfos.add(email);
+        lesInfos.add(mdp);
         lesInfos.add(nom);
         lesInfos.add(prenom);
         lesInfos.add(numTel);

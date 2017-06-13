@@ -15,12 +15,11 @@
 </jsp:include>
 <table class="container">
     <th colspan="2" class="row">Vos informations</th>
-    <tr class="row">
-        
-    </tr>
-    <c:forEach items="${liste}" var="infos">
+    <c:forEach items="${listeInfos}" var="infos">
         <div class="row">
-            <div class="col-sm-4" style="background-color:lavender;">${infos['nomProduit']}</div>
+            <tr>
+                <td class="col-sm-4">${infos}</td><td class="col-sm-4"><input type="email" id="email" name="email" value="<c:out value="${infos}"/>" size="20" maxlength="60" disable/></td>
+            </tr>
         </div>
         
     </c:forEach>

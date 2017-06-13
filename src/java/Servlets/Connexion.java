@@ -53,26 +53,26 @@ public class Connexion extends HttpServlet {
         }
 
         /* Récupération de la session depuis la requête */
-        HttpSession session = request.getSession();
+        
 
         /**
          * Si aucune erreur de validation n'a eu lieu, alors ajout du bean
          * Utilisateur à la session, sinon suppression du bean de la session.
          */
-        if ( form.getErreurs().isEmpty() ) {
-            session.setAttribute( ATT_SESSION_USER_ID, utilisateur.getId_utilisateur() );
-            session.setAttribute(ATT_SESSION_USER_NAME, utilisateur.getNom());
-            session.setAttribute(ATT_SESSION_USER_SNAME, utilisateur.getPrenom());
+        if (form.getErreurs().isEmpty()) {
+            HttpSession session = request.getSession();
+            session.setAttribute( "mailUtilisateur", utilisateur.getEmail() );
+            System.out.println(session.getAttribute( "mailUtilisateur"));
         } else {
-            session.setAttribute( ATT_SESSION_USER_ID, null );
-            session.setAttribute(ATT_SESSION_USER_NAME, null);
-            session.setAttribute(ATT_SESSION_USER_SNAME, null);
+            System.out.println("erreur création de session");
         }
 
         /* Stockage du formulaire et du bean dans l'objet request */
         request.setAttribute( ATT_FORM, form );
         request.setAttribute( ATT_USER, utilisateur );
 
+        
+        
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
 

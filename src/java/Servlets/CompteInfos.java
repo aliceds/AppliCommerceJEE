@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
 public class CompteInfos extends HttpServlet {
     
     public static final String VUE = "/WEB-INF/compte.jsp";
-    public static final String LIST = "liste";
+    public static final String LIST = "listeInfos";
     public static final String ERREUR = "erreur";
     private List<String> listeInfos = new ArrayList<>();
     private DaoUtilisateur leDaoUtilisateur;
@@ -69,18 +69,17 @@ public class CompteInfos extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-        int erreur = creerConnexion();
-        request.setAttribute(ERREUR, erreur);
         listeInfos.clear();
         leDaoUtilisateur = CreationConnexion.getDaoUtilisateur();
         /* Récupération de la session depuis la requête */
-        HttpSession session = request.getSession();
-        try {
-            leDaoUtilisateur.recupererUtilisateur(listeInfos, (String) session.getAttribute("idUtilisateur"));
-        } catch (SQLException ex) {
-            System.out.println("erreur lors du chargement : "+ex.getMessage());
-        }       
+        HttpSession session = request.getSession(true);
+        System.out.println("email=" + request.getParameter("mailUtilisateur"));
+//        try {
+//            leDaoUtilisateur.recupererUtilisateur(listeInfos, session.getAttribute("idUtilisateur"));
+//            System.out.println(session.getAttribute("idUtilisateur"));
+//        } catch (SQLException ex) {
+//            System.out.println("erreur lors du chargement : "+ex.getMessage());
+//        }       
         
         request.setAttribute(LIST, listeInfos);
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
