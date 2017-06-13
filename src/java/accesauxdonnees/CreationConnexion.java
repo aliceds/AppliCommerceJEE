@@ -18,11 +18,15 @@ import accesauxdonnees.SourceMariaDB;
 public class CreationConnexion {
 
     private static DaoUtilisateur daoUtilisateur;
+    private static DaoProduit daoProduit;
     private static int etatSortie = 0;
 
     // les accesseurs aux DAO utilisés par l'application
     public static DaoUtilisateur getDaoUtilisateur() {
         return daoUtilisateur;
+    }
+    public static DaoProduit getDaoProduit() {
+        return daoProduit;
     }
 
     public static int creerConnexion() {
@@ -42,6 +46,7 @@ public class CreationConnexion {
         try {
             // les DAO nécessaires
             daoUtilisateur = new DaoUtilisateur(laConnexion);
+            daoProduit = new DaoProduit(laConnexion);
         } catch (SQLException ex) {
             System.out.println("erreur lors de la création du DAO" + ex.getMessage());
             etatSortie = 1;

@@ -36,7 +36,7 @@ public class DaoUtilisateur {
             String nom = rset.getString(4);
             String prenom = rset.getString(5);
             String num_tel = rset.getString(6);
-            LocalDate date_inscription = rset.getDate(7).toLocalDate();;
+            LocalDate date_inscription = rset.getDate(7).toLocalDate();
             Utilisateur temp = new Utilisateur(id_utilisateur, email, motDePasse, nom, prenom, num_tel, date_inscription);
             lesUtilisateurs.add(temp);
         }

@@ -5,17 +5,23 @@
  */
 package Servlets;
 
+import Beans.Produit;
 import static accesauxdonnees.CreationConnexion.creerConnexion;
 import Beans.Utilisateur;
+import accesauxdonnees.CreationConnexion;
+import accesauxdonnees.DaoProduit;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modele.ModeleProduit;
 import modele.ModeleUtilisateur;
 
 /**
@@ -25,7 +31,11 @@ import modele.ModeleUtilisateur;
 public class Accueil extends HttpServlet {
 
     public static final String VUE = "/WEB-INF/index.jsp";
+    public static final String LIST = "liste";
     public static final String ERREUR = "erreur";
+    private List<Produit> listeProduits = new ArrayList<>();
+    private DaoProduit leDaoProduit;
+    
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,13 +52,27 @@ public class Accueil extends HttpServlet {
 //        out.println("</html>");
         
         request.setAttribute(ERREUR, erreur);
-
+        
+        leDaoProduit = CreationConnexion.getDaoProduit();
+        try {
+            leDaoProduit.recupererProduits(listeProduits);
+            
+        } catch (SQLException ex) {
+            System.out.println("erreur lors du chargement : "+ex.getMessage());
+        }       
+        
+        request.setAttribute(LIST, listeProduits);
+        for (Produit produit : listeProduits) {
+            System.out.println(produit);
+        }
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
     }
 
     @Override
