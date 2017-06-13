@@ -167,3 +167,10 @@ textarea {
 .item {
   background: none;
 }
+
+.images {
+  height: 150px;
+}
+.list-group-item {
+  width: 700px;
+}

@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Site de commerce en ligne - Accueil</title>
+        <title>Confiseriegolotes</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="style1.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
@@ -22,13 +22,13 @@
             <section class="container">
                 <div class="row">
                     <div class="col-md-2 col-sm-2 col-xs-12">
-                        <img src=""
+                        <img src="IMAGES/logo.png"
                         alt="Logo du site"
-                        class="img-circle" style="width:100%">
+                        class="img" style="width:100%">
                     </div>
                     <div class="col-md-10 col-sm-10 col-xs-12">
-                        <h1>Nom du site</h1>
-                        <p>Site de e-commerce</p>
+                        <h1>Confiserigolotes</h1>
+                        <p>Confiseries artisanales et 100% françaises</p>
                     </div>
                 </div>
             </section>

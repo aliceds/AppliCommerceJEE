@@ -10,25 +10,28 @@
 <section class="container">
 
     <h1>Bienvenue sur notre site</h1>
-    <p>Nous faisons [TO DO]</p> 
-    <p>Connexion à la base : ${erreur}</p>
-        
-            <div class="container">
-                <h2>Basic List Group</h2>
-                <ul class="list-group">
-                    <c:forEach items="${liste}" var="produit">
-                    <li class="list-group-item">
-                        <p class="nomproduit"><c:out value="${produit['nomProduit']}"/></p>
-                        <input type="hidden" size="2" value="1" name="quantity">
-                        <p class="prixUnitaireHT"><c:out value="${produit['prixUnitaireHT']}"/> €</p> 
-                        <img class="images" src="IMAGES/<c:out value="${produit['lienImage']}"/>"/>
-                    </li>
-                    </c:forEach>
-                </ul>
-            </div>
-
-        
+    
     <p>Vous pouvez vous inscrire ou vous connecter à votre compte en haut à droite de la fenêtre</p>
     <p>Une fois connecté-e, vous pourrez accéder à votre panier, vos informations personnelles et vos commandes passées.</p>
+    
+    <div class="container">
+        <h2>Confiseries que nous vendons</h2>
+        <ul class="list-group">
+            <c:forEach items="${liste}" var="produit">
+            <li class="list-group-item">
+                <table class="table-produit">
+                <tr>
+
+                    <td><p class="nomproduit"><c:out value="${produit['nomProduit']}"/></p>
+                    <input type="hidden" size="2" value="1" name="quantity">
+                    <p class="prixUnitaireHT"><c:out value="${produit['prixUnitaireHT']}"/> €</p> 
+                    <img class="images" src="IMAGES/<c:out value="${produit['lienImage']}"/>"/></td>
+                    <td><p class="description"><c:out value="${produit['infosProduits']}"/></p></td>
+                <tr>
+                </table>
+            </li>
+            </c:forEach>
+        </ul>
+    </div>
 
 </section>

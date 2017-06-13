@@ -75,21 +75,21 @@ public class DaoUtilisateur {
         return resultat;
     }
     
-    public void recupererUtilisateur(List<String> lesInfos, String email) throws SQLException {
-        String requete = "select * from utilisateur where email= '" + email + "'";
+    public void recupererUtilisateur(Utilisateur utilisateur, String email) throws SQLException {
+        String requete = "select * from utilisateur where email= '"+email+"'";
         PreparedStatement pstmt = connexion.prepareStatement(requete);
         ResultSet rset = pstmt.executeQuery(requete);
-        String mdp = rset.getString(3);
-        String nom = rset.getString(4);
-        String prenom = rset.getString(5);
-        String numTel = rset.getString(6);
-        LocalDate dateInscription = rset.getDate(7).toLocalDate();
-        lesInfos.add(email);
-        lesInfos.add(mdp);
-        lesInfos.add(nom);
-        lesInfos.add(prenom);
-        lesInfos.add(numTel);
-        lesInfos.add(dateInscription.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        while (rset.next()) { 
+            utilisateur.setId_utilisateur(rset.getInt(1));
+            utilisateur.setEmail(rset.getString(2));
+            utilisateur.setMotDePasse(rset.getString(3));
+            utilisateur.setNom(rset.getString(4));
+            utilisateur.setPrenom(rset.getString(5));
+            utilisateur.setNum_tel(rset.getString(6));
+            utilisateur.setDate_inscription(rset.getDate(7).toLocalDate());
+        }
+        
+        rset.close();
         pstmt.close();
     }
 }

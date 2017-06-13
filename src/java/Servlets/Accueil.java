@@ -21,6 +21,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modele.ModeleUtilisateur;
 
 /**
@@ -58,7 +59,9 @@ public class Accueil extends HttpServlet {
             
         } catch (SQLException ex) {
             System.out.println("erreur lors du chargement : "+ex.getMessage());
-        }       
+        } 
+        HttpSession session = request.getSession();
+        System.out.println("email dans accueil : " + session.getAttribute("mailUtilisateur"));
         
         request.setAttribute(LIST, listeProduits);
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
