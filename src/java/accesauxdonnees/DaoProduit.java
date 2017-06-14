@@ -32,8 +32,8 @@ public class DaoProduit {
         while (rset.next()) {       // traitement du résulat
             int idProduit = rset.getInt(1);
             String nomProduit = rset.getString(2);
-            int prixUnitaireHT = rset.getInt(3);
-            int tauxTVA = rset.getInt(4);
+            float prixUnitaireHT = rset.getFloat(3);
+            float tauxTVA = rset.getFloat(4);
             String infosProduits = rset.getString(5);
             String type = rset.getString(6);
             String parfum = rset.getString(7);

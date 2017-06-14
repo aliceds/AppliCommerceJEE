@@ -14,15 +14,15 @@ import java.time.LocalDate;
 public class Produit {
     private int idProduit;
     private String nomProduit;
-    private int prixUnitaireHT;
-    private int tauxTVA;
+    private float prixUnitaireHT;
+    private float tauxTVA;
     private String infosProduits;
     private String type;
     private String parfum;
     private LocalDate dateMiseEnVente;
     private String lienImage;
 
-    public Produit(int idProduit, String nomProduit, int prixUnitaireHT, int tauxTVA, String infosProduits, String type, String parfum, LocalDate dateMiseEnVente, String lienImage) {
+    public Produit(int idProduit, String nomProduit, float prixUnitaireHT, float tauxTVA, String infosProduits, String type, String parfum, LocalDate dateMiseEnVente, String lienImage) {
         this.idProduit = idProduit;
         this.nomProduit = nomProduit;
         this.prixUnitaireHT = prixUnitaireHT;
@@ -34,7 +34,9 @@ public class Produit {
         this.lienImage = lienImage;
     }
     
-    
+    public Produit() {
+        
+    }
 
     public int getIdProduit() {
         return idProduit;
@@ -52,19 +54,19 @@ public class Produit {
         this.nomProduit = nomProduit;
     }
 
-    public int getPrixUnitaireHT() {
+    public float getPrixUnitaireHT() {
         return prixUnitaireHT;
     }
 
-    public void setPrixUnitaireHT(int prixUnitaireHT) {
+    public void setPrixUnitaireHT(float prixUnitaireHT) {
         this.prixUnitaireHT = prixUnitaireHT;
     }
 
-    public int getTauxTVA() {
+    public float getTauxTVA() {
         return tauxTVA;
     }
 
-    public void setTauxTVA(int tauxTVA) {
+    public void setTauxTVA(float tauxTVA) {
         this.tauxTVA = tauxTVA;
     }
 

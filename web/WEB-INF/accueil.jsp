@@ -21,12 +21,19 @@
             <li class="list-group-item">
                 <table class="table-produit">
                 <tr>
-
-                    <td><p class="nomproduit"><c:out value="${produit['nomProduit']}"/></p>
-                    <input type="hidden" size="2" value="1" name="quantity">
-                    <p class="prixUnitaireHT"><c:out value="${produit['prixUnitaireHT']}"/> €</p> 
+                <form method="post" action="Panier">
+                    <input type="hidden" name="idProduit" value="<c:out value="${produit['idProduit']}"/>"/>
+                    <td><input type="text" name="nomProduit" value="<c:out value="${produit['nomProduit']}"/>"/>
+                    <input type="text"  name="prixUnitaireHT" value="<c:out value="${produit['prixUnitaireHT']}"/>"/> €
                     <img class="images" src="IMAGES/<c:out value="${produit['lienImage']}"/>"/></td>
-                    <td><p class="description"><c:out value="${produit['infosProduits']}"/></p></td>
+                    <input type="hidden" name="lienImage" value="<c:out value="${produit['lienImage']}"/>"/>
+                    <td><input type="text"  name="infosProduits" value="<c:out value="${produit['infosProduits']}"/>"/>
+                        <label>Type : </label>
+                        <input type="text"  name="type" value="<c:out value="${produit['type']}"/>"/>
+                        <label>Parfum : </label>
+                        <input type="text"  name="parfum" value="<c:out value="${produit['parfum']}"/>"/>
+                        <input type="submit" name="action" value="ajouter au panier"/></td>
+                </form>
                 <tr>
                 </table>
             </li>

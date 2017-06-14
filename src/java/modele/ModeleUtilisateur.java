@@ -18,19 +18,11 @@ import java.util.List;
  */
 public class ModeleUtilisateur {
 
-    // le conteneur de données
     private final List<Utilisateur> leConteneurUtilisateurs;
-    // le titre des champs du conteneur
-    //private final String[] titres;
-    // l'objet DAO pour mettre à jour le conteneur
     private final DaoUtilisateur leDaoUtilisateur;
 
     public ModeleUtilisateur() {
-        // définition du conteneur d'étudiants
         this.leConteneurUtilisateurs = new ArrayList<>();
-        // définition des noms du champ
-        //this.titres = new String[]{"Num", "Nom", "Prénom", "Civilité", "Date de naissance", "Lieu de naissance", "Role", "Statut", "Pays"};
-        // récupération de l'objet DAO utilisé
         this.leDaoUtilisateur = CreationConnexion.getDaoUtilisateur();
     }
 
@@ -42,7 +34,6 @@ public class ModeleUtilisateur {
 
     public void chargerLesUtilisateurs() throws SQLException {
         leDaoUtilisateur.recupererUtilisateurs(leConteneurUtilisateurs);
-        //this.fireTableDataChanged();
     }
     
     public boolean existeUtilisateur(String email, String motDePasse) throws SQLException {

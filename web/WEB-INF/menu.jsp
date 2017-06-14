@@ -25,7 +25,7 @@
                 <% if(session.getAttribute("mailUtilisateur") != null) { %>
                 <li><a href="CompteInfos">Mon compte</a></li>
                 <% } %>
-                <li><a href="#">Mon Panier</a></li>
+                <li><a href="Panier">Mon Panier</a></li>
                 <% if (session.getAttribute("mailUtilisateur") == null) { %>
                 <li><a href="Connexion">Connexion</a></li>
                 <% } %>
