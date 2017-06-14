@@ -15,18 +15,16 @@ public class Produit {
     private int idProduit;
     private String nomProduit;
     private float prixUnitaireHT;
-    private float tauxTVA;
     private String infosProduits;
     private String type;
     private String parfum;
     private LocalDate dateMiseEnVente;
     private String lienImage;
 
-    public Produit(int idProduit, String nomProduit, float prixUnitaireHT, float tauxTVA, String infosProduits, String type, String parfum, LocalDate dateMiseEnVente, String lienImage) {
+    public Produit(int idProduit, String nomProduit, float prixUnitaireHT, String infosProduits, String type, String parfum, LocalDate dateMiseEnVente, String lienImage) {
         this.idProduit = idProduit;
         this.nomProduit = nomProduit;
         this.prixUnitaireHT = prixUnitaireHT;
-        this.tauxTVA = tauxTVA;
         this.infosProduits = infosProduits;
         this.type = type;
         this.parfum = parfum;
@@ -60,14 +58,6 @@ public class Produit {
 
     public void setPrixUnitaireHT(float prixUnitaireHT) {
         this.prixUnitaireHT = prixUnitaireHT;
-    }
-
-    public float getTauxTVA() {
-        return tauxTVA;
-    }
-
-    public void setTauxTVA(float tauxTVA) {
-        this.tauxTVA = tauxTVA;
     }
 
     public String getInfosProduits() {
@@ -112,7 +102,7 @@ public class Produit {
 
     @Override
     public String toString() {
-        return "Produit{" + "idProduit=" + idProduit + ", nomProduit=" + nomProduit + ", prixUnitaireHT=" + prixUnitaireHT + ", tauxTVA=" + tauxTVA + ", infosProduits=" + infosProduits + ", type=" + type + ", parfum=" + parfum + ", dateMiseEnVente=" + dateMiseEnVente + ", lienImage=" + lienImage + '}';
+        return "Produit{" + "idProduit=" + idProduit + ", nomProduit=" + nomProduit + ", prixUnitaireHT=" + prixUnitaireHT + ", infosProduits=" + infosProduits + ", type=" + type + ", parfum=" + parfum + ", dateMiseEnVente=" + dateMiseEnVente + ", lienImage=" + lienImage + '}';
     }
     
     

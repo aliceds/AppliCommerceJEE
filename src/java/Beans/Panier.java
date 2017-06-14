@@ -20,17 +20,17 @@ public class Panier {
         return alCartItems.size();
     }
 
-//    public void deleteCartItem(String strItemIndex) {
-//        int iItemIndex = 0;
-//        try {
-//            iItemIndex = Integer.parseInt(strItemIndex);
-//            alCartItems.remove(iItemIndex - 1);
-//            calculateOrderTotal();
-//        } catch (NumberFormatException nfe) {
-//            System.out.println("Error while deleting cart item: " + nfe.getMessage());
-//            nfe.printStackTrace();
-//        }
-//    }
+    public void deleteCartItem(String strItemIndex) {
+        int itemIndex = 0;
+        try {
+            itemIndex = Integer.parseInt(strItemIndex);
+            alCartItems.remove(itemIndex - 1);
+            calculateOrderTotal();
+        } catch (NumberFormatException nfe) {
+            System.out.println("Error while deleting cart item: " + nfe.getMessage());
+            nfe.printStackTrace();
+        }
+    }
 
 //    public void updateCartItem(String strItemIndex, String strQuantity) {
 //        double dblTotalCost = 0.0;
@@ -56,15 +56,14 @@ public class Panier {
 //
 //    }
 
-    public void addCartItem(int idProduit, String nomProduit, float prixUnitaireHT, String infosProduits, String parfum, String type, String lienImage) {
+    public void addCartItem(int idProduit, String nomProduit, float prixUnitaireHT, int quantite, String lienImage) {
         ItemPanier cartItem = new ItemPanier();
         //dblTotalCost = dblUnitCost * iQuantity;
         cartItem.setIdProduit(idProduit);
         cartItem.setNomProduit(nomProduit);
         cartItem.setPrixUnitaireHT(prixUnitaireHT);
-        cartItem.setInfosProduits(infosProduits);
-        cartItem.setParfum(parfum);
-        cartItem.setType(type);
+        cartItem.setQuantite(quantite);
+        cartItem.setMontant(quantite*prixUnitaireHT);
         cartItem.setLienImage(lienImage);
         alCartItems.add(cartItem);
         calculateOrderTotal();

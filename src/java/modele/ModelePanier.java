@@ -19,24 +19,24 @@ public class ModelePanier {
         
     }
 
-//    public void deleteCart(HttpServletRequest request) {
-//        HttpSession session = request.getSession();
-//        String strItemIndex = request.getParameter("itemIndex");
-//        Panier cartBean = null;
-//
-//        Object objCartBean = session.getAttribute("cart");
-//        if (objCartBean != null) {
-//            cartBean = (Panier) objCartBean;
-//        } else {
-//            cartBean = new Panier();
-//        }
-//        cartBean.deleteCartItem(strItemIndex);
-//    }
+    public void deleteCart(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String strItemIndex = request.getParameter("itemIndex");
+        Panier cartBean = null;
+
+        Object objCartBean = session.getAttribute("cart");
+        if (objCartBean != null) {
+            cartBean = (Panier) objCartBean;
+        } else {
+            cartBean = new Panier();
+        }
+        cartBean.deleteCartItem(strItemIndex);
+    }
 
 //    public void updateCart(HttpServletRequest request) {
 //        HttpSession session = request.getSession();
-//        String strQuantity = request.getParameter("quantity");
-//        String strItemIndex = request.getParameter("itemIndex");
+//        String strQuantity = request.getParameter("quantite");
+//        String strItemIndex = request.getParameter("idProduit");
 //
 //        Panier panier = null;
 //
@@ -55,9 +55,7 @@ public class ModelePanier {
         int idProduit = Integer.parseInt(request.getParameter("idProduit"));
         String nomProduit = request.getParameter("nomProduit");
         float prixUnitaireHT = Float.parseFloat(request.getParameter("prixUnitaireHT"));
-        String infosProduits = request.getParameter("infosProduits");
-        String parfum = request.getParameter("parfum");
-        String type = request.getParameter("type");
+        int quantite = 1;//Integer.parseInt(request.getParameter("quantite"));
         String lienImage = request.getParameter("lienImage");
         
         System.out.println("on entre bien dans addToCart");
@@ -73,6 +71,6 @@ public class ModelePanier {
             session.setAttribute("cart", panier);
         }
 
-        panier.addCartItem(idProduit, nomProduit, prixUnitaireHT, infosProduits, parfum, type, lienImage);
+        panier.addCartItem(idProduit, nomProduit, prixUnitaireHT, quantite, lienImage);
     }
 }

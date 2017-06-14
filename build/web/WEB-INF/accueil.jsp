@@ -7,11 +7,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<section class="container">
-
-    <h1>Bienvenue sur notre site</h1>
+    <h1>Bienvenue sur notre site !</h1>
     
-    <p>Vous pouvez vous inscrire ou vous connecter à votre compte en haut à droite de la fenêtre</p>
+    <p>Nos confiseries sont de qualité artisanale, 100% naturelles et 100% françaises !</p>
+    <p>Vous pouvez vous inscrire ou vous connecter à votre compte en haut à droite de la fenêtre.</p>
     <p>Une fois connecté-e, vous pourrez accéder à votre panier, vos informations personnelles et vos commandes passées.</p>
     
     <div class="container">
@@ -20,25 +19,30 @@
             <c:forEach items="${liste}" var="produit">
             <li class="list-group-item">
                 <table class="table-produit">
-                <tr>
-                <form method="post" action="Panier">
-                    <input type="hidden" name="idProduit" value="<c:out value="${produit['idProduit']}"/>"/>
-                    <td><input type="text" name="nomProduit" value="<c:out value="${produit['nomProduit']}"/>"/>
-                    <input type="text"  name="prixUnitaireHT" value="<c:out value="${produit['prixUnitaireHT']}"/>"/> €
-                    <img class="images" src="IMAGES/<c:out value="${produit['lienImage']}"/>"/></td>
-                    <input type="hidden" name="lienImage" value="<c:out value="${produit['lienImage']}"/>"/>
-                    <td><input type="text"  name="infosProduits" value="<c:out value="${produit['infosProduits']}"/>"/>
-                        <label>Type : </label>
-                        <input type="text"  name="type" value="<c:out value="${produit['type']}"/>"/>
-                        <label>Parfum : </label>
-                        <input type="text"  name="parfum" value="<c:out value="${produit['parfum']}"/>"/>
-                        <input type="submit" name="action" value="ajouter au panier"/></td>
-                </form>
-                <tr>
+                    <form method="post" action="Panier">
+                        <input type="hidden" name="idProduit" value="<c:out value="${produit['idProduit']}"/>"/>
+                        <tr>
+                            <td rowspan="4" class="col-md-2"><img class="images" src="IMAGES/<c:out value="${produit['lienImage']}"/>"/></td>
+                            <input type="hidden" name="lienImage" value="<c:out value="${produit['lienImage']}"/>"/>
+                            <td class="col-md-6"><strong><c:out value="${produit['nomProduit']}"/></strong></td>
+                            <input type="hidden" name="nomProduit" value="<c:out value="${produit['nomProduit']}"/>"/>
+                            <input type="hidden" name="prixUnitaireHT" value="<c:out value="${produit['prixUnitaireHT']}"/>"/>
+                            <td class="col-md-3"><strong><c:out value="${produit['prixUnitaireHT']}"/> €</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-6"><p>Type : ${produit['type']}</p></td>
+                            <td class="col-md-3"><input type="submit" name="action" value="Ajouter au panier" onclick="alert('Produit ajouté au panier !')"/></td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-6"><p>Parfum : ${produit['parfum']}</p></td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-6"><p>Description : ${produit['infosProduits']}</p></td>
+                        </tr>
+                    </form>
                 </table>
             </li>
             </c:forEach>
         </ul>
     </div>
 
-</section>

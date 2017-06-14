@@ -33,13 +33,12 @@ public class DaoProduit {
             int idProduit = rset.getInt(1);
             String nomProduit = rset.getString(2);
             float prixUnitaireHT = rset.getFloat(3);
-            float tauxTVA = rset.getFloat(4);
-            String infosProduits = rset.getString(5);
-            String type = rset.getString(6);
-            String parfum = rset.getString(7);
-            LocalDate dateMiseEnVente = rset.getDate(8).toLocalDate();
-            String lienImage= rset.getString(9);
-            Produit temp = new Produit(idProduit, nomProduit, prixUnitaireHT, tauxTVA, infosProduits, type, parfum, dateMiseEnVente, lienImage);
+            String infosProduits = rset.getString(4);
+            String type = rset.getString(5);
+            String parfum = rset.getString(6);
+            LocalDate dateMiseEnVente = rset.getDate(7).toLocalDate();
+            String lienImage= rset.getString(8);
+            Produit temp = new Produit(idProduit, nomProduit, prixUnitaireHT,  infosProduits, type, parfum, dateMiseEnVente, lienImage);
             lesProduits.add(temp);
         }
         

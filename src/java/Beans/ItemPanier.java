@@ -13,10 +13,25 @@ public class ItemPanier {
     private int idProduit;
     private String nomProduit;
     private float prixUnitaireHT;
-    private String infosProduits;
-    private String parfum;
-    private String type;
+    private int quantite;
+    private float montant;
     private String lienImage;
+
+    public int getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
+    }
+
+    public float getMontant() {
+        return montant;
+    }
+
+    public void setMontant(float montant) {
+        this.montant = montant;
+    }
 
     public int getIdProduit() {
         return idProduit;
@@ -42,30 +57,6 @@ public class ItemPanier {
         this.prixUnitaireHT = prixUnitaireHT;
     }
 
-    public String getInfosProduits() {
-        return infosProduits;
-    }
-
-    public void setInfosProduits(String infosProduits) {
-        this.infosProduits = infosProduits;
-    }
-
-    public String getParfum() {
-        return parfum;
-    }
-
-    public void setParfum(String parfum) {
-        this.parfum = parfum;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getLienImage() {
         return lienImage;
     }
@@ -73,6 +64,5 @@ public class ItemPanier {
     public void setLienImage(String lienImage) {
         this.lienImage = lienImage;
     }
-     
     
 }

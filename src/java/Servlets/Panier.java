@@ -23,6 +23,7 @@ public class Panier extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         this.getServletContext().getRequestDispatcher("/WEB-INF/panier.jsp").forward(request, response);
 
     }
@@ -38,9 +39,10 @@ public class Panier extends HttpServlet {
         
         System.out.println("parametre : " + request.getParameter("action"));
 
-        if (strAction.equals("ajouter au panier")) {
+        if (strAction.equals("Ajouter au panier")) {
             System.out.println("on a bien cliqué sur ajouter au panier");
             System.out.println(request.getParameter("nomProduit"));
+            System.out.println(request.getParameter("idProduit"));
             leModelePanier.addToCart(request);
         } //else if (strAction.equals("Update")) {
 //                leModelePanier.updateCart(request);

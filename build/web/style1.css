@@ -12,23 +12,8 @@ p {
   margin-bottom: 45px;
 }
 
-.bg-1 {
-  background-color: #1abc9c; /* Vert */
-  color: #ffffff;
-}
-
-.bg-2 {
-  background-color: #474e5d; /* Bleu foncé */
-  color: #ffffff;
-}
-
-.bg-3 {
-  background-color: #ffffff; /* Blanc */
-  color: #555555;
-}
-
 .bg-4 {
-  background-color: #2f2f2f; /* Gris-noir */
+  background-color: #ff99cc; /* Gris-noir */
   color: #fff;
 }
 
@@ -45,7 +30,7 @@ p {
   margin-bottom: 0;
   font-size: 12px;
   letter-spacing: 2px;
-  background-color: #DDDDDD;
+  background-color: #ffe6f2;
 }
 
 .navbar-nav  li a:hover {
@@ -169,8 +154,41 @@ textarea {
 }
 
 .images {
-  height: 150px;
+  width: 150px;
 }
 .list-group-item {
-  width: 700px;
+  
+}
+
+.table-produit td {
+    text-align: left;
+}
+
+.table-produit tr:first-child td:last-child {
+    text-align: right;
+}
+
+.table-produit tr:nth-child(2) td:last-child {
+    text-align: right;
+}
+
+strong {
+    color: #b30059;
+}
+
+h1 {
+    color: #4d0026;
+}
+
+h2 {
+    color: #660033;
+}
+
+button, input[type="submit"] {
+    background-color: #ffe6f2;
+    color: #777;
+    border: none;
+    border-radius: 15px;
+    border-width: 3px;  
+    border-style: dotted;
 }

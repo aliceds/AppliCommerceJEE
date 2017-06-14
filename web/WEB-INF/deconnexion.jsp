@@ -12,11 +12,11 @@
 <jsp:include page="menu.jsp" flush="true">
     <jsp:param name="menu" value="menu" />
 </jsp:include> 
-<section class="container">
+
     <div class ="row">
         <p classe="indication">Vous avez été correctement déconnecté</p>
     </div>
-</section>
+
 <jsp:include page="footer.jsp" flush="true">
     <jsp:param name="footer" value="footer" />
 </jsp:include> 

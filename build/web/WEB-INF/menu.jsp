@@ -17,25 +17,26 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-left">
-                <li><a href="Accueil">Accueil</a></li>
+                <li><a href="Accueil"><i class="glyphicon glyphicon-home"></i> Accueil</a></li>
             </ul>
 
             <!-- Champs de connexion et déconnexion -->
             <ul class="nav navbar-nav navbar-right">
                 <% if(session.getAttribute("mailUtilisateur") != null) { %>
-                <li><a href="CompteInfos">Mon compte</a></li>
+                <li><a href="CompteInfos"><i class="glyphicon glyphicon-user"></i> Mon compte</a></li>
                 <% } %>
-                <li><a href="Panier">Mon Panier</a></li>
+                <li><a href="Panier"><i class="glyphicon glyphicon-shopping-cart"></i> Mon Panier</a></li>
                 <% if (session.getAttribute("mailUtilisateur") == null) { %>
-                <li><a href="Connexion">Connexion</a></li>
+                <li><a href="Connexion"><i class="glyphicon glyphicon-log-in"></i> Connexion</a></li>
                 <% } %>
                 <% if (session.getAttribute("mailUtilisateur") == null) {%>
-                <li><a href="Inscription">Inscription</a></li>
+                <li><a href="Inscription"><i class="glyphicon glyphicon-plus"></i> Inscription</a></li>
                 <% } %>
                 <% if (session.getAttribute("mailUtilisateur") != null) { %>
-                <li><a href="Deconnexion">Déconnexion</a></li>
+                <li><a href="Deconnexion"><i class="glyphicon glyphicon glyphicon-log-out"></i> Déconnexion</a></li>
                 <% }%>
             </ul>
         </div>
     </div>
 </nav>
+<section class="container">
