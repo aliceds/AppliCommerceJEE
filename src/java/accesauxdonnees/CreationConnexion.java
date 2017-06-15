@@ -19,6 +19,7 @@ public class CreationConnexion {
 
     private static DaoUtilisateur daoUtilisateur;
     private static DaoProduit daoProduit;
+    private static DaoCommande daoCommande;
     private static int etatSortie = 0;
 
     // les accesseurs aux DAO utilisés par l'application
@@ -27,6 +28,9 @@ public class CreationConnexion {
     }
     public static DaoProduit getDaoProduit() {
         return daoProduit;
+    }
+    public static DaoCommande getDaoCommande() {
+        return daoCommande;
     }
 
     public static int creerConnexion() {
@@ -47,6 +51,7 @@ public class CreationConnexion {
             // les DAO nécessaires
             daoUtilisateur = new DaoUtilisateur(laConnexion);
             daoProduit = new DaoProduit(laConnexion);
+            daoCommande = new DaoCommande(laConnexion);
         } catch (SQLException ex) {
             System.out.println("erreur lors de la création du DAO" + ex.getMessage());
             etatSortie = 1;

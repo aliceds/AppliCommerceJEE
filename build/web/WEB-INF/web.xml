@@ -27,6 +27,14 @@
         <servlet-name>Panier</servlet-name>
         <servlet-class>Servlets.Panier</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Commandes</servlet-name>
+        <servlet-class>Servlets.Commandes</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>contenuCommande</servlet-name>
+        <servlet-class>Servlets.ContenuCommande</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Accueil</servlet-name>
         <url-pattern>/Accueil</url-pattern>
@@ -50,6 +58,14 @@
     <servlet-mapping>
         <servlet-name>Panier</servlet-name>
         <url-pattern>/Panier</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Commandes</servlet-name>
+        <url-pattern>/Commandes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>contenuCommande</servlet-name>
+        <url-pattern>/contenuCommande</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
