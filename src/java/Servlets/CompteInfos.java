@@ -55,8 +55,25 @@ public class CompteInfos extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        leDaoUtilisateur = CreationConnexion.getDaoUtilisateur();
+        user = new Utilisateur();
+        user.setEmail((String) request.getParameter("email"));
+        user.setMotDePasse((String) request.getParameter("motdepasse"));
+        user.setNom((String) request.getParameter("nom"));
+        user.setPrenom((String) request.getParameter("prenom"));
+        user.setNum_tel((String) request.getParameter("num_tel"));
+        System.out.println("nom : " + (String) request.getParameter("email"));
+        try {
+            leDaoUtilisateur.modifierUtilisateur(user);
+            HttpSession session = request.getSession();
+            session.setAttribute("mailUtilisateur", user.getEmail());
+        } catch (SQLException ex) {
+            System.out.println("erreur lors du chargement : "+ex.getMessage());
+        }       
         
-        // à faire : modification utilisateur
+        
+        request.setAttribute("utilisateur", user);
         
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
     }

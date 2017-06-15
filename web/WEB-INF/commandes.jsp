@@ -13,32 +13,44 @@
 <jsp:include page="menu.jsp" flush="true">
     <jsp:param name="menu" value="menu" />
 </jsp:include>
-<div class="container">
+<% if(session.getAttribute("mailUtilisateur") != null) { %>
     <h2>Vos commandes</h2>
     <ul class="list-group">
         <c:forEach items="${listeCommandes}" var="cmd">
             <li class="list-group-item">
                 <table class="table-produit">
                     <input type="hidden" name="numeroCommande" value="<c:out value="${cmd['numeroCommande']}"/>"/>
-                    <tr>
                     <input type="hidden" name="dateCommande" value="<c:out value="${cmd['dateCommande']}"/>"/>
                     <input type="hidden" name="etat" value="<c:out value="${cmd['etat']}"/>"/>
+                    <tr>
+                        <td class="col-md-3"><p>Commande n° : ${cmd['numeroCommande']}</p></td>
+                        <td class="col-md-3"><p>Date de la commande : ${cmd['dateCommande']}</p></td>
+                        <td class="col-md-3"><p>Etat : ${cmd['etat']}</p></td>
+                    </tr>
+                </table>
+                <table class="panier">
+                    <input type="hidden" name="idProduit" value="<c:out value="${cmd.itemCommande['idProduit']}"/>"/>
+                    <input type="hidden" name="nomProduit" value="<c:out value="${cmd.itemCommande['nomProduit']}"/>"/>
+                    <input type="hidden" name="quantite" value="<c:out value="${cmd.itemCommande['quantite']}"/>"/>
+                    <input type="hidden" name="prixUnitaireHT" value="<c:out value="${cmd.itemCommande['prixUnitaireHT']}"/>"/>
+                    <tr>
+                        <td><em>N° produit</em></td>
+                        <td><em>Nom</em></td>
+                        <td><em>Quantité</em></td>
+                        <td><em>Montant</em></td>
                     </tr>
                     <tr>
-                        <td class="col-md-6"><p>Commande n° : ${cmd['numeroCommande']}</p></td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-6"><p>Date de la commande : ${cmd['dateCommande']}</p></td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-6"><p>Etat : ${cmd['etat']}</p></td>
+                        <td><p>${cmd.itemCommande['idProduit']}</p></td>
+                        <td><p>${cmd.itemCommande['nomProduit']}</p></td>
+                        <td><p>${cmd.itemCommande['quantite']}</p></td>
+                        <td><p>${cmd.itemCommande['montant']}</p></td>
                     </tr>
                 </table>
             </li>
         </c:forEach>
-        
-            
-</div>  
+<% } else {%>
+    <p>Veuillez vous connecter pour accéder à cette page.</p>
+<% } %>
 <jsp:include page="footer.jsp" flush="true">
     <jsp:param name="footer" value="footer" />
 </jsp:include> 

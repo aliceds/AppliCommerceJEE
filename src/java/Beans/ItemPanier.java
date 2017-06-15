@@ -17,6 +17,9 @@ public class ItemPanier {
     private float montant;
     private String lienImage;
 
+    public ItemPanier() {
+    }
+
     public int getQuantite() {
         return quantite;
     }

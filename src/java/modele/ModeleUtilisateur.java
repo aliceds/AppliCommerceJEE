@@ -31,6 +31,10 @@ public class ModeleUtilisateur {
         leDaoUtilisateur.ajouterUtilisateur(user);
         chargerLesUtilisateurs();
     }
+    
+    public void modifierUtilisateur(Utilisateur user) throws SQLException {
+        leDaoUtilisateur.modifierUtilisateur(user);
+    }
 
     public void chargerLesUtilisateurs() throws SQLException {
         leDaoUtilisateur.recupererUtilisateurs(leConteneurUtilisateurs);

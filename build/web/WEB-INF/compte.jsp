@@ -13,13 +13,14 @@
 <jsp:include page="menu.jsp" flush="true">
     <jsp:param name="menu" value="menu" />
 </jsp:include>
+<form method="POST" action="CompteInfos">
+<% if(session.getAttribute("mailUtilisateur") != null) { %>
 
-<form method="post" action="CompteInfos">
     <fieldset>
         <table class="formulaire">
             <th colspan="2">Informations de votre compte</th>
             <tr>
-                <td><label for="nom">Adresse email <span class="requis">*</span></label></td>
+                <td><label for="email">Adresse email <span class="requis">*</span></label></td>
                 <td><input type="email" id="email" name="email" value="<c:out value="${utilisateur.email}"/>" size="20" maxlength="60" /></td>
             <span class="erreur">${form.erreurs['email']}</span>
             </tr>
@@ -65,15 +66,17 @@
         <%-- vérification de la présence d'un objet utilisateur en session --%>
         <c:if test="${!empty sessionScope.sessionUtilisateur}">
             <%-- si l'utilisateur existe en session, alors affichage adresse email --%>
-            <p class="succes">Vous êtes connecté(e) avec l'adresse : ${sessionScope.sessionUtilisateur.email}</p>
+            <p class="succes">Vous êtes connecté-e avec l'adresse : ${sessionScope.sessionUtilisateur.email}</p>
         </c:if>
 
     </fieldset>
+
+    <a href="Commandes">Mes commandes</a>
+
+<% } else {%>
+    <p>Veuillez vous connecter pour accéder à cette page.</p>
+<% } %>
 </form>
-
-<a href="Commandes">Mes commandes</a>
-
-
 <jsp:include page="footer.jsp" flush="true">
     <jsp:param name="footer" value="footer" />
 </jsp:include> 

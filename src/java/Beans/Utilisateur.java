@@ -43,9 +43,6 @@ public class Utilisateur {
         this.date_inscription = date_inscription;
     }
     
-    
-    
-    
     public String getEmail() {
         return email;
     }

@@ -45,6 +45,18 @@ public class DaoUtilisateur {
         pstmt.close();
     }
     
+    public void modifierUtilisateur(Utilisateur utilisateur) throws SQLException {
+        String requete = "update utilisateur set email=?, mot_de_passe=?, nom=?, prenom=?, num_tel=? where email='" + utilisateur.getEmail() +"'";
+        PreparedStatement pstmt = connexion.prepareStatement(requete);
+        pstmt.setString(1, utilisateur.getEmail());
+        pstmt.setString(2, utilisateur.getMotDePasse());
+        pstmt.setString(3, utilisateur.getNom());
+        pstmt.setString(4, utilisateur.getPrenom());
+        pstmt.setString(5, utilisateur.getNum_tel());
+        pstmt.executeUpdate();
+        pstmt.close();
+    }
+    
     public void ajouterUtilisateur(Utilisateur utilisateur) throws SQLException {
         String requete = "insert into utilisateur (email, mot_de_passe, nom, prenom, num_tel, date_inscription) values(?,?,?,?,?,?)";
         PreparedStatement pstmt = connexion.prepareStatement(requete);

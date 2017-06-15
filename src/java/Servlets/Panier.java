@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modele.ModelePanier;
 
 /**
@@ -23,7 +24,8 @@ public class Panier extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        HttpSession session = request.getSession();
+        session.getAttribute("mailUtilisateur");
         this.getServletContext().getRequestDispatcher("/WEB-INF/panier.jsp").forward(request, response);
 
     }
@@ -33,8 +35,8 @@ public class Panier extends HttpServlet {
             throws ServletException, IOException {
         leModelePanier = new ModelePanier();
         
-        
-        
+        HttpSession session = request.getSession();
+        session.getAttribute("mailUtilisateur");
         String strAction = request.getParameter("action");
         
         System.out.println("parametre : " + request.getParameter("action"));

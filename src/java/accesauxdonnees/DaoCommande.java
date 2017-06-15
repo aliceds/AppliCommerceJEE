@@ -6,6 +6,7 @@
 package accesauxdonnees;
 
 import Beans.Commande;
+import Beans.ItemPanier;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,14 +26,24 @@ public class DaoCommande {
     }
 
     public void recupererCommandes(List<Commande> lesCommandes, int id_utilisateur) throws SQLException {
-        String requete = "select * from commande where id_utilisateur="+id_utilisateur;
+        String requete = "SELECT commande.numeroCommande, dateCommande, etat, contenuCommande.idProduit, nomProduit, quantiteAchetee, prixUnitaireHT "
+                + "FROM commande, contenuCommande, produit "
+                + "WHERE contenuCommande.idProduit = produit.idProduit "
+                + "AND commande.numeroCommande = contenuCommande.numeroCommande "
+                + "AND  id_utilisateur="+id_utilisateur;
         PreparedStatement pstmt = connexion.prepareStatement(requete);
         ResultSet rset = pstmt.executeQuery(requete);
         while (rset.next()) {       // traitement du résulat
             int idCommande = rset.getInt(1);
-            LocalDate dateCommande = rset.getDate(3).toLocalDate();
-            String etat = rset.getString(4);
-            Commande cmd = new Commande(idCommande, id_utilisateur, dateCommande, etat);
+            LocalDate dateCommande = rset.getDate(2).toLocalDate();
+            String etat = rset.getString(3);
+            ItemPanier item = new ItemPanier();
+            item.setIdProduit(rset.getInt(4));
+            item.setNomProduit(rset.getString(5));
+            item.setQuantite(rset.getInt(6));
+            item.setPrixUnitaireHT(rset.getFloat(7));
+            item.setMontant(rset.getInt(6)*rset.getFloat(7));
+            Commande cmd = new Commande(idCommande, id_utilisateur, dateCommande, etat, item);
             lesCommandes.add(cmd);
         }
         

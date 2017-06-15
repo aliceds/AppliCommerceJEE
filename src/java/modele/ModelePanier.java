@@ -19,19 +19,19 @@ public class ModelePanier {
         
     }
 
-    public void deleteCart(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        String strItemIndex = request.getParameter("itemIndex");
-        Panier cartBean = null;
-
-        Object objCartBean = session.getAttribute("cart");
-        if (objCartBean != null) {
-            cartBean = (Panier) objCartBean;
-        } else {
-            cartBean = new Panier();
-        }
-        cartBean.deleteCartItem(strItemIndex);
-    }
+//    public void deleteCart(HttpServletRequest request) {
+//        HttpSession session = request.getSession();
+//        String strItemIndex = request.getParameter("itemIndex");
+//        Panier cartBean = null;
+//
+//        Object objCartBean = session.getAttribute("cart");
+//        if (objCartBean != null) {
+//            cartBean = (Panier) objCartBean;
+//        } else {
+//            cartBean = new Panier();
+//        }
+//        cartBean.deleteCartItem(strItemIndex);
+//    }
 
 //    public void updateCart(HttpServletRequest request) {
 //        HttpSession session = request.getSession();
