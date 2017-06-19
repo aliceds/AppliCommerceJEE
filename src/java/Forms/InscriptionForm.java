@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Forms;
 
 import Beans.Utilisateur;
@@ -26,7 +21,7 @@ public class InscriptionForm {
     private static final String CHAMP_PRENOM = "prenom";
 
     private String resultat;
-    private Map<String, String> erreurs = new HashMap<String, String>();
+    private Map<String, String> erreurs = new HashMap<>();
 
     public String getResultat() {
         return resultat;

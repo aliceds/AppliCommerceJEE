@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlets;
 
 import Beans.Utilisateur;
 import accesauxdonnees.CreationConnexion;
-import static accesauxdonnees.CreationConnexion.creerConnexion;
 import accesauxdonnees.DaoUtilisateur;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -63,7 +55,6 @@ public class CompteInfos extends HttpServlet {
         user.setNom((String) request.getParameter("nom"));
         user.setPrenom((String) request.getParameter("prenom"));
         user.setNum_tel((String) request.getParameter("num_tel"));
-        System.out.println("nom : " + (String) request.getParameter("email"));
         try {
             leDaoUtilisateur.modifierUtilisateur(user);
             HttpSession session = request.getSession();

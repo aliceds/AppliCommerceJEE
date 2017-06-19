@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Beans;
 
 import java.util.ArrayList;
@@ -31,30 +26,6 @@ public class Panier {
             nfe.printStackTrace();
         }
     }
-
-//    public void updateCartItem(String strItemIndex, String strQuantity) {
-//        double dblTotalCost = 0.0;
-//        double dblUnitCost = 0.0;
-//        int iQuantity = 0;
-//        int iItemIndex = 0;
-//        ItemPanier cartItem = null;
-//        try {
-//            iItemIndex = Integer.parseInt(strItemIndex);
-//            iQuantity = Integer.parseInt(strQuantity);
-//            if (iQuantity > 0) {
-//                cartItem = (ItemPanier) alCartItems.get(iItemIndex - 1);
-//                dblUnitCost = cartItem.getUnitCost();
-//                dblTotalCost = dblUnitCost * iQuantity;
-//                cartItem.setQuantity(iQuantity);
-//                cartItem.setTotalCost(dblTotalCost);
-//                calculateOrderTotal();
-//            }
-//        } catch (NumberFormatException nfe) {
-//            System.out.println("Error while updating cart: " + nfe.getMessage());
-//            nfe.printStackTrace();
-//        }
-//
-//    }
 
     public void addCartItem(int idProduit, String nomProduit, float prixUnitaireHT, int quantite, String lienImage) {
         ItemPanier cartItem = new ItemPanier();

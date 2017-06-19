@@ -19,48 +19,15 @@ public class ModelePanier {
         
     }
 
-//    public void deleteCart(HttpServletRequest request) {
-//        HttpSession session = request.getSession();
-//        String strItemIndex = request.getParameter("itemIndex");
-//        Panier cartBean = null;
-//
-//        Object objCartBean = session.getAttribute("cart");
-//        if (objCartBean != null) {
-//            cartBean = (Panier) objCartBean;
-//        } else {
-//            cartBean = new Panier();
-//        }
-//        cartBean.deleteCartItem(strItemIndex);
-//    }
-
-//    public void updateCart(HttpServletRequest request) {
-//        HttpSession session = request.getSession();
-//        String strQuantity = request.getParameter("quantite");
-//        String strItemIndex = request.getParameter("idProduit");
-//
-//        Panier panier = null;
-//
-//        Object objPanier = session.getAttribute("cart");
-//        if (objPanier != null) {
-//            panier = (Panier) objPanier;
-//        } else {
-//            panier = new Panier();
-//        }
-//        panier.updateCartItem(strItemIndex, strQuantity);
-//    }
-
     public void addToCart(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        System.out.println("parametres dans addToCart : " + request.getParameter("idProduit"));
         int idProduit = Integer.parseInt(request.getParameter("idProduit"));
         String nomProduit = request.getParameter("nomProduit");
         float prixUnitaireHT = Float.parseFloat(request.getParameter("prixUnitaireHT"));
         int quantite = 1;//Integer.parseInt(request.getParameter("quantite"));
         String lienImage = request.getParameter("lienImage");
-        
-        System.out.println("on entre bien dans addToCart");
 
-        Panier panier = null;
+        Panier panier;
 
         Object objPanier = session.getAttribute("cart");
 

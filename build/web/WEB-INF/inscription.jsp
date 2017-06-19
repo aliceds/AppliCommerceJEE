@@ -59,8 +59,6 @@
                 <td><input type="submit" value="Inscription" class="sansLabel" /></td>
             </tr>
         </table>
-        
-            <p>Erreurs : ${erreurs['chargement']} et ${erreurs['insertion']}</p>
             
         <p class="indication"><span class="requis">Les champs marqués de * sont obligatoires</span></p>
 

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlets;
 
 import Beans.Utilisateur;
@@ -11,8 +6,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +22,7 @@ public class Inscription extends HttpServlet {
     public static final String ATT_FORM = "form";
     public static final String VUE = "/WEB-INF/inscription.jsp";
     private ModeleUtilisateur leModeleUtilisateur;
-    private Map<String, String> erreurs = new HashMap<String, String>();
+    private final Map<String, String> erreurs = new HashMap<>();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -63,7 +56,6 @@ public class Inscription extends HttpServlet {
             }
         }
 
-        //
         request.setAttribute("erreurs", erreurs);
 
         //Stockage du formulaire et du bean dans l'objet request
@@ -72,15 +64,5 @@ public class Inscription extends HttpServlet {
 
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

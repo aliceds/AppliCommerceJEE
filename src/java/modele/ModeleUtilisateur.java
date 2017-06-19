@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modele;
 
 import accesauxdonnees.CreationConnexion;
@@ -41,8 +36,6 @@ public class ModeleUtilisateur {
     }
     
     public boolean existeUtilisateur(String email, String motDePasse) throws SQLException {
-        if (leDaoUtilisateur.existeUtilisateur(email, motDePasse) == 0)
-            return false;
-        return true;
+        return leDaoUtilisateur.existeUtilisateur(email, motDePasse) != 0;
     }
 }

@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package accesauxdonnees;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.sql.DataSource;
-import accesauxdonnees.SourceMariaDB;
 
 /**
  *
@@ -35,8 +28,8 @@ public class CreationConnexion {
 
     public static int creerConnexion() {
         // les variables locales
-        DataSource laSourceDeDonnees;   // la sourde de données
-        Connection laConnexion = null;  // la connexion
+        DataSource laSourceDeDonnees;
+        Connection laConnexion = null;
         
         // Etablissement de la connexion à la base MariaDB avec affichage de la fenetre d'identification 
         try {
@@ -60,8 +53,4 @@ public class CreationConnexion {
         return etatSortie;
     }
 
-    // le point d'entré du programme
-    //public static void main(String[] args) {
-
-    //}
 }

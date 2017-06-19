@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlets;
 
 import Beans.Utilisateur;
 import Forms.ConnexionForm;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Leen
+ * @author Lea
  */
 public class Connexion extends HttpServlet {
     
@@ -52,9 +46,6 @@ public class Connexion extends HttpServlet {
             Logger.getLogger(Connexion.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        /* Récupération de la session depuis la requête */
-        
-
         /**
          * Si aucune erreur de validation n'a eu lieu, alors ajout du bean
          * Utilisateur à la session, sinon suppression du bean de la session.
@@ -62,7 +53,6 @@ public class Connexion extends HttpServlet {
         if (form.getErreurs().isEmpty()) {
             HttpSession session = request.getSession();
             session.setAttribute( "mailUtilisateur", utilisateur.getEmail() );
-            System.out.println(session.getAttribute( "mailUtilisateur"));
         } else {
             System.out.println("erreur création de session");
         }
@@ -75,15 +65,5 @@ public class Connexion extends HttpServlet {
         
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

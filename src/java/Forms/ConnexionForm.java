@@ -8,18 +8,17 @@ import Beans.Utilisateur;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import modele.ModeleUtilisateur;
 
 
 public final class ConnexionForm {
-    private static final String CHAMP_EMAIL  = "email";
-    private static final String CHAMP_PASS   = "motdepasse";
-    ModeleUtilisateur leModeleUtilisateur;
+    private static final String CHAMP_EMAIL = "email";
+    private static final String CHAMP_PASS  = "motdepasse";
+    private ModeleUtilisateur   leModeleUtilisateur;
 
     private String              resultat;
-    private Map<String, String> erreurs      = new HashMap<String, String>();
+    private Map<String, String> erreurs     = new HashMap<>();
 
     public String getResultat() {
         return resultat;
@@ -34,7 +33,6 @@ public final class ConnexionForm {
         String email = getValeurChamp( request, CHAMP_EMAIL );
         String motDePasse = getValeurChamp( request, CHAMP_PASS );
         
-        System.out.println("email : " + email + "mot de passe : " + motDePasse);
         
         leModeleUtilisateur = new ModeleUtilisateur();
         leModeleUtilisateur.chargerLesUtilisateurs();
@@ -43,22 +41,22 @@ public final class ConnexionForm {
 
         /* Validation du champ email. */
         try {
-            validationEmail( email, motDePasse );
+            validationEmail(email, motDePasse);
         } catch ( Exception e ) {
             setErreur( CHAMP_EMAIL, e.getMessage() );
         }
-        utilisateur.setEmail( email );
+        utilisateur.setEmail(email);
 
         /* Validation du champ mot de passe. */
         try {
             validationMotDePasse( motDePasse );
-        } catch ( Exception e ) {
+        } catch (Exception e) {
             setErreur( CHAMP_PASS, e.getMessage() );
         }
         utilisateur.setMotDePasse( motDePasse );
 
         /* Initialisation du résultat global de la validation. */
-        if ( erreurs.isEmpty() ) {
+        if (erreurs.isEmpty()) {
             resultat = "Succès de la connexion.";
         } else {
             resultat = "Échec de la connexion.";
@@ -67,9 +65,6 @@ public final class ConnexionForm {
         return utilisateur;
     }
 
-    /**
-     * Valide l'adresse email saisie.
-     */
     private void validationEmail( String email, String motDePasse ) throws Exception {
         if ( email != null && !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
             throw new Exception( "Merci de saisir une adresse mail valide." );
@@ -80,9 +75,6 @@ public final class ConnexionForm {
         }
     }
 
-    /**
-     * Valide le mot de passe saisi.
-     */
     private void validationMotDePasse( String motDePasse ) throws Exception {
         if ( motDePasse != null ) {
             if ( motDePasse.length() < 3 ) {
@@ -100,10 +92,6 @@ public final class ConnexionForm {
         erreurs.put( champ, message );
     }
 
-    /*
-     * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
-     * sinon.
-     */
     private static String getValeurChamp( HttpServletRequest request, String nomChamp ) {
         String valeur = request.getParameter( nomChamp );
         if ( valeur == null || valeur.trim().length() == 0 ) {

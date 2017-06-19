@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,19 +32,11 @@ public class Panier extends HttpServlet {
         HttpSession session = request.getSession();
         session.getAttribute("mailUtilisateur");
         String strAction = request.getParameter("action");
-        
-        System.out.println("parametre : " + request.getParameter("action"));
 
         if (strAction.equals("Ajouter au panier")) {
-            System.out.println("on a bien cliqué sur ajouter au panier");
-            System.out.println(request.getParameter("nomProduit"));
-            System.out.println(request.getParameter("idProduit"));
             leModelePanier.addToCart(request);
-        } //else if (strAction.equals("Update")) {
-//                leModelePanier.updateCart(request);
-//            } else if (strAction.equals("Delete")) {
-//                leModelePanier.deleteCart(request);
-//            }
+        }
+        
         response.sendRedirect(request.getContextPath() + "/Accueil");
     }
 }

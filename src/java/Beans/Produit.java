@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Beans;
 
 import java.time.LocalDate;
@@ -100,11 +95,4 @@ public class Produit {
         this.lienImage = lienImage;
     }
 
-    @Override
-    public String toString() {
-        return "Produit{" + "idProduit=" + idProduit + ", nomProduit=" + nomProduit + ", prixUnitaireHT=" + prixUnitaireHT + ", infosProduits=" + infosProduits + ", type=" + type + ", parfum=" + parfum + ", dateMiseEnVente=" + dateMiseEnVente + ", lienImage=" + lienImage + '}';
-    }
-    
-    
-    
 }

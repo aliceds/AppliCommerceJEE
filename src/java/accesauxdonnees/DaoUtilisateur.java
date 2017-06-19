@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package accesauxdonnees;
 
 import Beans.Utilisateur;
@@ -11,8 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -75,8 +68,6 @@ public class DaoUtilisateur {
 
         String requete = "select email from utilisateur where email= '" + email + "' and mot_de_passe='" + motDePasse + "'";
         PreparedStatement pstmt = connexion.prepareStatement(requete);
-        //pstmt.setString(1, email);
-        //pstmt.setString(2, motDePasse);
         
         ResultSet rset = pstmt.executeQuery(requete);
         while (rset.next()) {       // traitement du résulat
